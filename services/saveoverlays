@@ -29,12 +29,12 @@ LOGFILE=/var_org/log/$NAME.log
 ROOTLOG="${HOME}/$NAME.log"
 SYNCSIG="/.overlaysync"
 
-PRIORITYFILES=${PRIORITYFILES:-"/var/log/fake-hwclock.data /var/lib/domoticz/domoticz.db"}
+PRIORITYFILES=${PRIORITYFILES:-"/var/log/fake-hwclock.data"}
 DEFAULTFS=$(  awk '/^overlay/ { print $2 }' /proc/mounts )
 OVERLAYFS=${OVERLAYFS:-$DEFAULTFS}
 SYNCEXCLUDES=${SYNCEXCLUDES:-'--exclude *.leases'}
 SYNCFLAGS=${SYNCFLAGS:-"-avH --delete-after --inplace --no-whole-file"}
-KILLPROCS=${KILLPROCS:-"domoticz mosquitto"}
+KILLPROCS=${KILLPROCS:-""}
 
 # Check if we are running with read-only root
 # ROROOT=$( mount | egrep '^/dev/.*on / .*ro,' )
